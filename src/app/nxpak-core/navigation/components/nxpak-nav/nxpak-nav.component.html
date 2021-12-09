@@ -1,0 +1,32 @@
+<mat-sidenav-container class="sidenav-container">
+
+  <mat-sidenav #sidenav role="navigation" class="sidenav">
+    <mat-nav-list>
+      <a mat-list-item routerLink="/" (click)="sidenav.close()">Administration</a>
+      <a mat-list-item routerLink="/" (click)="sidenav.close()">Billing</a>
+      <a mat-list-item routerLink="/" (click)="sidenav.close()">Policy Rating</a>
+    </mat-nav-list>
+  </mat-sidenav>
+
+  <mat-sidenav-content class="sidenav-content">
+    <mat-toolbar color="primary">
+      <div fxHide.gt-xs>
+        <button mat-icon-button (click)="sidenav.toggle()">
+          <mat-icon>menu</mat-icon>
+        </button>
+      </div>
+      <div><a routerLink="/">NextPak</a></div>
+      <div class="toolbar-links" fxFlex fxLayout fxLayoutAlign="flex-end" fxHide.xs>
+        <mat-nav-list fxLayout>
+          <a mat-list-item routerLink="/">Administration</a>
+          <a mat-list-item routerLink="/">Billing</a>
+          <a mat-list-item routerLink="/">Policy Rating</a>
+        </mat-nav-list>
+      </div>
+    </mat-toolbar>
+    <main>
+      <p>Content</p>
+    </main>
+  </mat-sidenav-content>
+
+</mat-sidenav-container>
