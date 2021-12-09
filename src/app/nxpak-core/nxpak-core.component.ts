@@ -1,12 +1,16 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 
 @Component({
-  selector: 'app-nxpak-core',
-  template: `<nxpak-nav></nxpak-nav>`
+  template: `
+    <nxpak-nav>
+      <router-outlet></router-outlet>
+    </nxpak-nav>
+  `,
 })
 export class NxpakCoreComponent implements OnInit {
 
-  constructor() { }
+  constructor() {
+  }
 
   ngOnInit(): void {
   }

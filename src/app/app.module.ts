@@ -8,8 +8,14 @@ import {NxpakCoreComponent} from "./nxpak-core/nxpak-core.component";
 import {NxpakCoreModule} from "./nxpak-core/nxpak-core.module";
 
 const routes: Routes = [
-  {path: "nxpak", component: NxpakCoreComponent},
-  {path: "**", redirectTo: "nxpak"}
+  {
+    path: "nxpak",
+    loadChildren: () => import('./nxpak-core/nxpak-core.module').then(m => m.NxpakCoreModule)
+  },
+  {
+    path: "**",
+    redirectTo: "nxpak"
+  }
 ]
 
 @NgModule({

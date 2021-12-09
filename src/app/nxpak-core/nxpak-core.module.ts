@@ -9,11 +9,28 @@ import {MatIconModule} from "@angular/material/icon";
 import {MatListModule} from "@angular/material/list";
 import {FlexLayoutModule} from "@angular/flex-layout";
 import {NxpakNavComponent} from "./navigation/components/nxpak-nav/nxpak-nav.component";
+import {RouterModule, Routes} from "@angular/router";
 
+const routes: Routes = [
+  {
+    path: 'nxpak',
+    component: NxpakCoreComponent,
+    children: [
+      {
+        path: 'mappa',
+        loadChildren: () => import('./../group-lines/mappa/mappa.module').then(m => m.MappaModule)},
+    ]
+  },
+  {
+    path: "**",
+    redirectTo: "nxpak"
+  }
+]
 
 @NgModule({
   declarations: [
-    NxpakCoreComponent, NxpakNavComponent
+    NxpakCoreComponent,
+    NxpakNavComponent
   ],
   imports: [
     CommonModule,
@@ -24,6 +41,7 @@ import {NxpakNavComponent} from "./navigation/components/nxpak-nav/nxpak-nav.com
     MatIconModule,
     MatListModule,
     FlexLayoutModule,
+    RouterModule.forChild(routes)
   ]
 })
 export class NxpakCoreModule {
