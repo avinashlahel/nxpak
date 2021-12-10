@@ -1,0 +1,33 @@
+<section fxLayout fxLayoutAlign="center">
+  <mat-card fxFlex.xs="100%" fxFlex="600px">
+    <mat-card-title>
+      POLICY INFO
+    </mat-card-title>
+    <mat-card-content>
+      <form action="" fxLayout="column" fxLayoutAlign="center center" #polForm="ngForm" (ngSubmit)="submitForm(polForm)">
+
+        <mat-form-field>
+          <input type="text" matInput placeholder="Agency Number" ngModel name="agencyNumber">
+        </mat-form-field>
+
+
+        <mat-form-field appearance="fill">
+          <mat-label>Agency Number</mat-label>
+          <mat-select>
+            <mat-option [value]="867867">
+              867867
+            </mat-option>
+            <mat-option [value]="64565">
+              64565
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+
+      </form>
+    </mat-card-content>
+    <mat-divider></mat-divider>
+    <mat-card-actions fxLayout fxLayoutAlign="flex-end">
+      <button type="submit" mat-raised-button color="primary" (click)="submitForm(polForm)">Next</button>
+    </mat-card-actions>
+  </mat-card>
+</section>

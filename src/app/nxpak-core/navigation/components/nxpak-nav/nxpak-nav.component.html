@@ -18,14 +18,14 @@
       <div class="title"><a routerLink="/">NextPak</a></div>
       <div class="toolbar-links" fxFlex fxLayout fxLayoutAlign="flex-end" fxHide.xs>
         <mat-nav-list fxLayout>
-          <a mat-list-item routerLink="/">Administration</a>
+          <a mat-list-item routerLink="/nxpak/mappa/pol-info">Administration</a>
           <a mat-list-item routerLink="/">Billing</a>
           <a mat-list-item routerLink="/">Policy Rating</a>
         </mat-nav-list>
       </div>
     </mat-toolbar>
-    <main>
-      <ng-content></ng-content>
+    <main class="main-content">
+        <ng-content></ng-content>
     </main>
   </mat-sidenav-content>
 

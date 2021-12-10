@@ -10,6 +10,7 @@ import {MatListModule} from "@angular/material/list";
 import {FlexLayoutModule} from "@angular/flex-layout";
 import {NxpakNavComponent} from "./navigation/components/nxpak-nav/nxpak-nav.component";
 import {RouterModule, Routes} from "@angular/router";
+import {MatCardModule} from "@angular/material/card";
 
 const routes: Routes = [
   {
@@ -18,7 +19,8 @@ const routes: Routes = [
     children: [
       {
         path: 'mappa',
-        loadChildren: () => import('./../group-lines/mappa/mappa.module').then(m => m.MappaModule)},
+        loadChildren: () => import('./../group-lines/mappa/mappa.module').then(m => m.MappaModule)
+      },
     ]
   },
   {
@@ -40,6 +42,7 @@ const routes: Routes = [
     MatSidenavModule,
     MatIconModule,
     MatListModule,
+    MatCardModule,
     FlexLayoutModule,
     RouterModule.forChild(routes)
   ]

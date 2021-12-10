@@ -1,18 +1,14 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 
 @Component({
   selector: 'app-mappa',
-  template: `
-    <p>
-      mappa works!
-    </p>
-  `,
-  styles: [
-  ]
+  template: `<router-outlet></router-outlet>`,
+  styles: []
 })
 export class MappaComponent implements OnInit {
 
-  constructor() { }
+  constructor() {
+  }
 
   ngOnInit(): void {
   }
