@@ -14,7 +14,7 @@ import {MatCardModule} from "@angular/material/card";
 
 const routes: Routes = [
   {
-    path: 'nxpak',
+    path: '',
     component: NxpakCoreComponent,
     children: [
       {
@@ -25,7 +25,7 @@ const routes: Routes = [
   },
   {
     path: "**",
-    redirectTo: "nxpak"
+    redirectTo: "/"
   }
 ]
 
