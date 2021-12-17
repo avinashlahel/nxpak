@@ -12,7 +12,7 @@ const routes: Routes = [
   },
   {
     path: '',
-    redirectTo: "nxpak",
+    redirectTo: "nxpak/policy-rating", // TODO : replace with only nxpak
     pathMatch: "full"
   }
 ]
