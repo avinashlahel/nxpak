@@ -1,0 +1,23 @@
+.card-deck {
+  margin-top: 2rem;
+}
+
+.lob-card {
+  margin: 1rem;
+  width: 100px;
+  max-width: 100px;
+  height: 100px;
+  max-height: 100px;
+  cursor: pointer;
+}
+
+
+.card-icon {
+  padding-top: 0.5rem;
+  transform: scale(2);
+}
+
+.card-text {
+  padding-top: 1.5rem;
+  text-align: center;
+}

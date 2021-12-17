@@ -11,6 +11,8 @@ import {FlexLayoutModule} from "@angular/flex-layout";
 import {NxpakNavComponent} from "./navigation/components/nxpak-nav/nxpak-nav.component";
 import {RouterModule, Routes} from "@angular/router";
 import {MatCardModule} from "@angular/material/card";
+import { PolicyRatingHomeComponent } from './components/policy-rating-home/policy-rating-home.component';
+import {MatRippleModule} from "@angular/material/core";
 
 const routes: Routes = [
   {
@@ -21,6 +23,10 @@ const routes: Routes = [
         path: 'mappa',
         loadChildren: () => import('./../group-lines/mappa/mappa.module').then(m => m.MappaModule)
       },
+      {
+        path: "policy-rating",
+        component: PolicyRatingHomeComponent
+      }
     ]
   },
   {
@@ -32,7 +38,8 @@ const routes: Routes = [
 @NgModule({
   declarations: [
     NxpakCoreComponent,
-    NxpakNavComponent
+    NxpakNavComponent,
+    PolicyRatingHomeComponent
   ],
   imports: [
     CommonModule,
@@ -44,7 +51,8 @@ const routes: Routes = [
     MatListModule,
     MatCardModule,
     FlexLayoutModule,
-    RouterModule.forChild(routes)
+    RouterModule.forChild(routes),
+    MatRippleModule
   ]
 })
 export class NxpakCoreModule {

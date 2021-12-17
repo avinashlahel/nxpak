@@ -1,0 +1,19 @@
+<section fxLayout="column" fxLayoutAlign="center center">
+  <div fxLayout="column" fxLayoutAlign="center center" fxFlex.xs="70%" fxFlex="width: 600px">
+    <div>
+      <h1>Policy Rating</h1>
+    </div>
+    <div class="card-deck" fxLayout="row" fxLayoutAlign="center"
+         fxLayout.xs="max-width: 80%"  fxLayout.gt-xs="width: 50%">
+      <mat-card class="lob-card" mat-ripple [matRippleUnbounded]="false" [matRippleCentered]="true"
+                *ngFor="let lob of lobs" (click)="goToLob(lob)">
+        <mat-card-title fxLayout fxLayoutAlign="center center">
+          <mat-icon color="primary" class="card-icon">{{lob.icon}}</mat-icon>
+        </mat-card-title>
+        <mat-card-subtitle>
+          <div class="card-text">{{lob.name}}</div>
+        </mat-card-subtitle>
+      </mat-card>
+    </div>
+  </div>
+</section>

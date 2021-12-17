@@ -1,33 +1,77 @@
-<section fxLayout fxLayoutAlign="center">
-  <mat-card fxFlex.xs="100%" fxFlex="600px">
-    <mat-card-title>
+<section fxLayoutAlign="center">
+  <mat-card fxFlex.xs="100%" fxFlex.gt-xs="800px">
+    <mat-card-title style="text-align: center; padding: 0.5rem">
       POLICY INFO
     </mat-card-title>
-    <mat-card-content>
-      <form action="" fxLayout="column" fxLayoutAlign="center center" #polForm="ngForm" (ngSubmit)="submitForm(polForm)">
+    <mat-divider></mat-divider>
+    <mat-card-content fxLayoutAlign="center">
+      <form [formGroup]="formGroup" class="form-container"
+            fxLayout="row wrap" fxLayoutGap="2rem"
+            fxLayoutAlign="space-between center" fxFlex="90%">
 
-        <mat-form-field>
-          <input type="text" matInput placeholder="Agency Number" ngModel name="agencyNumber">
+        <mat-form-field appearance="fill" fxFlexAlign="center">
+          <mat-label>Policy Effective Date</mat-label>
+          <input matInput [matDatepicker]="polEffDate" [min]="minPolEffDate"
+                 formControlName="polEffDate">
+          <mat-datepicker-toggle matSuffix [for]="polEffDate"></mat-datepicker-toggle>
+          <mat-datepicker #polEffDate></mat-datepicker>
+          <mat-error *ngIf="hasError(POLICY_EFF_DATE, REQUIRED)">
+            Policy Effective Date is required
+          </mat-error>
         </mat-form-field>
 
-
-        <mat-form-field appearance="fill">
+        <mat-form-field appearance="fill" fxFlexAlign="center">
           <mat-label>Agency Number</mat-label>
-          <mat-select>
-            <mat-option [value]="867867">
-              867867
+          <input formControlName="agencyNumber" [matAutocomplete]="auto" #agencyNumberInput
+                 aria-label="Number" matInput type="text">
+          <button *ngIf="agencyNumberInput.value" (click)="clearAndOpenPanel()"
+                  matSuffix mat-icon-button aria-label="Clear">
+            <mat-icon>close</mat-icon>
+          </button>
+          <mat-autocomplete [displayWith]="displayOption" autoActiveFirstOption #auto="matAutocomplete">
+            <mat-option *ngFor="let agency of agenciesObservable | async" [value]="agency">
+              {{agency.name}}
             </mat-option>
-            <mat-option [value]="64565">
-              64565
-            </mat-option>
-          </mat-select>
+          </mat-autocomplete>
+          <mat-error *ngIf="hasError(AGENCY_NUMBER, REQUIRED)">
+            Agency Number is required
+          </mat-error>
+          <mat-error *ngIf="!hasError(AGENCY_NUMBER, REQUIRED) && hasError(AGENCY_NUMBER, NOT_FROM_DROP_DOWN)">
+            Please select a value from dropdown
+          </mat-error>
         </mat-form-field>
 
+        <mat-form-field appearance="fill" fxFlexAlign="center">
+          <mat-label>With Agent From</mat-label>
+          <input matInput [matDatepicker]="withAgentFrom" formControlName="withAgentFrom"
+                 name="withAgentFrom">
+          <mat-datepicker-toggle matSuffix [for]="withAgentFrom"></mat-datepicker-toggle>
+          <mat-datepicker #withAgentFrom></mat-datepicker>
+          <mat-error *ngIf="hasError(WITH_AGENT_FROM, REQUIRED)">
+            With Agent From is required
+          </mat-error>
+        </mat-form-field>
+
+        <mat-form-field appearance="fill" fxFlexAlign="center">
+          <mat-label>Old Policy If Rewrite</mat-label>
+          <input matInput formControlName="oldPolicyRewrite" name="oldPolicyRewrite">
+        </mat-form-field>
+
+        <mat-form-field appearance="fill" fxFlexAlign="center">
+          <mat-label>DSP Code</mat-label>
+          <input matInput formControlName="dspCode" name="dspCode">
+        </mat-form-field>
+
+        <mat-checkbox fxFlex="100" formControlName="paperless">PAPERLESS</mat-checkbox>
       </form>
     </mat-card-content>
-    <mat-divider></mat-divider>
-    <mat-card-actions fxLayout fxLayoutAlign="flex-end">
-      <button type="submit" mat-raised-button color="primary" (click)="submitForm(polForm)">Next</button>
+
+    <mat-card-actions fxLayout fxLayoutAlign="flex-end" style="padding: 10px">
+      <button type="submit" mat-raised-button color="accent">EXIT</button>
+      <button type="submit"
+              mat-raised-button color="primary" (click)="submitForm()">PROCEED
+      </button>
     </mat-card-actions>
+
   </mat-card>
 </section>
