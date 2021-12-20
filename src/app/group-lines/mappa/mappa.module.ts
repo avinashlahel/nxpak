@@ -18,6 +18,7 @@ import {MatAutocompleteModule} from "@angular/material/autocomplete";
 import {MappaInitDataService} from "./services/mappa-init-data.service";
 import {MatCheckboxModule} from "@angular/material/checkbox";
 import {MatIconModule} from "@angular/material/icon";
+import {SharedModule} from "../../shared/shared.module";
 
 const routes: Routes = [
   {
@@ -54,11 +55,12 @@ const routes: Routes = [
     FormsModule,
     MatDatepickerModule,
     MatNativeDateModule,
-    RouterModule.forChild(routes),
     MatAutocompleteModule,
     ReactiveFormsModule,
     MatCheckboxModule,
     MatIconModule,
+    SharedModule,
+    RouterModule.forChild(routes),
   ],
   providers: [
     MappaInitDataService

@@ -6,8 +6,8 @@
     <mat-divider></mat-divider>
     <mat-card-content>
       <form [formGroup]="formGroup">
-        <div fxLayoutAlign="center">
-          <div fxLayout="row wrap" fxLayoutGap="2rem 0.1rem grid" fxFlex="95%">
+        <nx-form-layout>
+
             <mat-form-field appearance="fill" fxFlex.xs="100%" fxFlex.gt-xs="50%">
               <mat-label>Policy Effective Date</mat-label>
               <input matInput [matDatepicker]="polEffDate" [min]="minPolEffDate"
@@ -40,32 +40,29 @@
               </mat-error>
             </mat-form-field>
 
-            <mat-form-field appearance="fill" fxFlex.xs="100%" fxFlex.gt-xs="50%">
-              <mat-label>With Agent From</mat-label>
-              <input matInput [matDatepicker]="withAgentFrom" formControlName="withAgentFrom"
-                     name="withAgentFrom">
-              <mat-datepicker-toggle matSuffix [for]="withAgentFrom"></mat-datepicker-toggle>
-              <mat-datepicker #withAgentFrom></mat-datepicker>
-              <mat-error *ngIf="hasError(WITH_AGENT_FROM, REQUIRED)">
-                With Agent From is required
-              </mat-error>
-            </mat-form-field>
+          <mat-form-field appearance="fill" fxFlex.xs="100%" fxFlex.gt-xs="50%">
+            <mat-label>With Agent From</mat-label>
+            <input matInput [matDatepicker]="withAgentFrom" formControlName="withAgentFrom"
+                   name="withAgentFrom">
+            <mat-datepicker-toggle matSuffix [for]="withAgentFrom"></mat-datepicker-toggle>
+            <mat-datepicker #withAgentFrom></mat-datepicker>
+            <mat-error *ngIf="hasError(WITH_AGENT_FROM, REQUIRED)">
+              With Agent From is required
+            </mat-error>
+          </mat-form-field>
 
-            <mat-form-field appearance="fill" fxFlex.xs="100%" fxFlex.gt-xs="50%">
-              <mat-label>Old Policy If Rewrite</mat-label>
-              <input matInput formControlName="oldPolicyRewrite" name="oldPolicyRewrite">
-            </mat-form-field>
+          <mat-form-field appearance="fill" fxFlex.xs="100%" fxFlex.gt-xs="50%">
+            <mat-label>Old Policy If Rewrite</mat-label>
+            <input matInput formControlName="oldPolicyRewrite" name="oldPolicyRewrite">
+          </mat-form-field>
 
-            <mat-form-field appearance="fill" fxFlex.xs="100%" fxFlex.gt-xs="50%">
-              <mat-label>DSP Code</mat-label>
-              <input matInput formControlName="dspCode" name="dspCode">
-            </mat-form-field>
+          <mat-form-field appearance="fill" fxFlex.xs="100%" fxFlex.gt-xs="50%">
+            <mat-label>DSP Code</mat-label>
+            <input matInput formControlName="dspCode" name="dspCode">
+          </mat-form-field>
 
-            <mat-checkbox fxFlex="100" formControlName="paperless">PAPERLESS</mat-checkbox>
-          </div>
-        </div>
-
-
+          <mat-checkbox fxFlexFill formControlName="paperless">PAPERLESS</mat-checkbox>
+        </nx-form-layout>
       </form>
     </mat-card-content>
 
