@@ -8,11 +8,15 @@ import {MatSidenavModule} from "@angular/material/sidenav";
 import {MatIconModule} from "@angular/material/icon";
 import {MatListModule} from "@angular/material/list";
 import {FlexLayoutModule} from "@angular/flex-layout";
-import {NxpakNavComponent} from "./navigation/components/nxpak-nav/nxpak-nav.component";
+import {NxpakNavComponent} from "./components/nxpak-nav/nxpak-nav.component";
 import {RouterModule, Routes} from "@angular/router";
 import {MatCardModule} from "@angular/material/card";
-import { PolicyRatingHomeComponent } from './components/policy-rating-home/policy-rating-home.component';
+import {PolicyRatingHomeComponent} from './components/policy-rating-home/policy-rating-home.component';
 import {MatRippleModule} from "@angular/material/core";
+import {NxProgressSpinnerComponent} from './components/nx-progress-spinner/nx-progress-spinner.component';
+import {MatProgressSpinnerModule} from "@angular/material/progress-spinner";
+import {OverlayService} from "./services/overlay.service";
+import {OverlayModule} from "@angular/cdk/overlay";
 
 const routes: Routes = [
   {
@@ -39,7 +43,8 @@ const routes: Routes = [
   declarations: [
     NxpakCoreComponent,
     NxpakNavComponent,
-    PolicyRatingHomeComponent
+    PolicyRatingHomeComponent,
+    NxProgressSpinnerComponent
   ],
   imports: [
     CommonModule,
@@ -52,8 +57,11 @@ const routes: Routes = [
     MatCardModule,
     FlexLayoutModule,
     RouterModule.forChild(routes),
-    MatRippleModule
-  ]
+    MatRippleModule,
+    MatProgressSpinnerModule,
+    OverlayModule
+  ],
+  providers: [OverlayService],
 })
 export class NxpakCoreModule {
 }

@@ -5,6 +5,8 @@ import {map} from "rxjs/operators";
 import {MappaInitDataService} from "../../services/mappa-init-data.service";
 import {Agency} from "../../models/common-model";
 import {MatAutocompleteTrigger} from "@angular/material/autocomplete";
+import {ActivatedRoute, Router} from "@angular/router";
+import {SpinnerService} from "../../../../nxpak-core/services/spinner.service";
 
 @Component({
   selector: 'nx-mappa-policy-info',
@@ -12,6 +14,9 @@ import {MatAutocompleteTrigger} from "@angular/material/autocomplete";
   styleUrls: ['./mappa-policy-info.component.scss']
 })
 export class MappaPolicyInfoComponent implements OnInit {
+
+  private INSURED_INFO = 'insured-info';
+
 
   // Form Control Constants
   AGENCY_NUMBER = 'agencyNumber';
@@ -35,7 +40,10 @@ export class MappaPolicyInfoComponent implements OnInit {
 
   public constructor(
     private fb: FormBuilder,
-    private initDataService: MappaInitDataService
+    private initDataService: MappaInitDataService,
+    private router: Router,
+    private route: ActivatedRoute,
+    private spinnerService: SpinnerService
   ) {
     this.createFormGroup();
   }
@@ -74,6 +82,12 @@ export class MappaPolicyInfoComponent implements OnInit {
       return;
     }
     console.log(this.formGroup);
+    this.spinnerService.showSpinner();
+    setTimeout(() => { // TODO : only for test
+      this.router.navigate(['..', this.INSURED_INFO], {relativeTo: this.route})
+      this.spinnerService.hideSpinner();
+    }, 1000);
+
   }
 
   private validateFormFieldsBeforeSubmit(): void {

@@ -9,7 +9,7 @@
   </mat-sidenav>
 
   <mat-sidenav-content class="sidenav-content">
-    <mat-toolbar color="primary">
+    <mat-toolbar class="mat-elevation-z6" color="primary">
       <div fxHide.gt-xs>
         <button mat-icon-button (click)="sidenav.toggle()">
           <mat-icon>menu</mat-icon>
@@ -28,5 +28,11 @@
         <ng-content></ng-content>
     </main>
   </mat-sidenav-content>
+
+  <!--  overlay spinner-->
+  <nx-progress-spinner [backdropEnabled]="true"
+                       [positionGloballyCenter]="true"
+                       [displayProgressSpinner]="displayProgressSpinner">
+  </nx-progress-spinner>
 
 </mat-sidenav-container>

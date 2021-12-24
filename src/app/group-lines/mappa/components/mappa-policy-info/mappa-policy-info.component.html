@@ -1,14 +1,17 @@
 <section fxLayoutAlign="center">
-  <mat-card fxFlex.xs="100%" fxFlex.sm="100%" fxFlex.gt-xs="800px">
-    <mat-card-title style="text-align: center; padding: 0.5rem">
-      POLICY INFO
-    </mat-card-title>
-    <mat-divider></mat-divider>
-    <mat-card-content>
+  <mat-card fxFlex.xs="100%" fxFlex.sm="100%" fxFlex.gt-xs="800px" class="mat-elevation-z6">
+
+    <mat-card-content >
       <form [formGroup]="formGroup">
         <nx-form-layout>
 
-            <mat-form-field appearance="fill" fxFlex.xs="100%" fxFlex.gt-xs="50%">
+            <div fxFlex="100%" style="margin-bottom: 2rem">
+              <h1 class="mat-headline headline">POLICY INFO</h1>
+              <mat-divider [inset]="true"></mat-divider>
+            </div>
+
+
+            <mat-form-field appearance="outline" fxFlex.xs="100%" fxFlex.gt-xs="50%">
               <mat-label>Policy Effective Date</mat-label>
               <input matInput [matDatepicker]="polEffDate" [min]="minPolEffDate"
                      formControlName="polEffDate">
@@ -19,7 +22,7 @@
               </mat-error>
             </mat-form-field>
 
-            <mat-form-field appearance="fill" fxFlex.xs="100%" fxFlex.gt-xs="50%">
+            <mat-form-field appearance="outline" fxFlex.xs="100%" fxFlex.gt-xs="50%">
               <mat-label>Agency Number</mat-label>
               <input formControlName="agencyNumber" [matAutocomplete]="auto" #agencyNumberInput
                      aria-label="Number" matInput type="text">
@@ -40,7 +43,7 @@
               </mat-error>
             </mat-form-field>
 
-          <mat-form-field appearance="fill" fxFlex.xs="100%" fxFlex.gt-xs="50%">
+          <mat-form-field appearance="outline" fxFlex.xs="100%" fxFlex.gt-xs="50%">
             <mat-label>With Agent From</mat-label>
             <input matInput [matDatepicker]="withAgentFrom" formControlName="withAgentFrom"
                    name="withAgentFrom">
@@ -51,17 +54,17 @@
             </mat-error>
           </mat-form-field>
 
-          <mat-form-field appearance="fill" fxFlex.xs="100%" fxFlex.gt-xs="50%">
+          <mat-form-field appearance="outline" fxFlex.xs="100%" fxFlex.gt-xs="50%">
             <mat-label>Old Policy If Rewrite</mat-label>
             <input matInput formControlName="oldPolicyRewrite" name="oldPolicyRewrite">
           </mat-form-field>
 
-          <mat-form-field appearance="fill" fxFlex.xs="100%" fxFlex.gt-xs="50%">
+          <mat-form-field appearance="outline" fxFlex.xs="100%" fxFlex.gt-xs="50%">
             <mat-label>DSP Code</mat-label>
             <input matInput formControlName="dspCode" name="dspCode">
           </mat-form-field>
 
-          <mat-checkbox fxFlexFill formControlName="paperless">PAPERLESS</mat-checkbox>
+          <mat-checkbox fxFlexFill="100%" formControlName="paperless">PAPERLESS</mat-checkbox>
         </nx-form-layout>
       </form>
     </mat-card-content>

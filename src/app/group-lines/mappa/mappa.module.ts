@@ -5,7 +5,7 @@ import {RouterModule, Routes} from "@angular/router";
 import {MatCardModule} from "@angular/material/card";
 import {MatButtonModule} from "@angular/material/button";
 import {MatDividerModule} from "@angular/material/divider";
-import {FlexModule} from "@angular/flex-layout";
+import {ExtendedModule, FlexModule} from "@angular/flex-layout";
 import {MatFormFieldModule} from "@angular/material/form-field";
 import {MatSelectModule} from "@angular/material/select";
 import {MatToolbarModule} from "@angular/material/toolbar";
@@ -19,6 +19,9 @@ import {MappaInitDataService} from "./services/mappa-init-data.service";
 import {MatCheckboxModule} from "@angular/material/checkbox";
 import {MatIconModule} from "@angular/material/icon";
 import {SharedModule} from "../../shared/shared.module";
+import {MappaInsuredInfoComponent} from './components/mappa-insuerd-info/mappa-insured-info.component';
+import {MatRadioModule} from "@angular/material/radio";
+import {MatExpansionModule} from "@angular/material/expansion";
 
 const routes: Routes = [
   {
@@ -28,6 +31,10 @@ const routes: Routes = [
       {
         path: 'policy-info',
         component: MappaPolicyInfoComponent
+      },
+      {
+        path: 'insured-info',
+        component: MappaInsuredInfoComponent
       }
     ]
   },
@@ -40,7 +47,8 @@ const routes: Routes = [
 @NgModule({
   declarations: [
     MappaComponent,
-    MappaPolicyInfoComponent
+    MappaPolicyInfoComponent,
+    MappaInsuredInfoComponent
   ],
   imports: [
     CommonModule,
@@ -61,6 +69,9 @@ const routes: Routes = [
     MatIconModule,
     SharedModule,
     RouterModule.forChild(routes),
+    MatRadioModule,
+    ExtendedModule,
+    MatExpansionModule,
   ],
   providers: [
     MappaInitDataService
