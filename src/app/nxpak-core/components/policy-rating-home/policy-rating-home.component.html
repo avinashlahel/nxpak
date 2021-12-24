@@ -8,9 +8,13 @@
       <mat-card class="mat-elevation-z9"
                 *ngFor="let lob of lobs" (click)="goToLob(lob)">
         <mat-card-content fxLayoutAlign="center center">
-          <div fxLayout="column" fxLayoutAlign="center center" fxLayoutGap="1rem">
-            <mat-icon color="primary" class="card-icon">{{lob.icon}}</mat-icon>
-            <div class="card-text mat-caption">{{lob.name}}</div>
+          <div fxLayout="column" fxLayoutAlign="center center" fxFlexFill>
+            <div fxLayout="column" fxLayoutAlign="end" fxFlex="50">
+              <mat-icon color="primary" class="card-icon">{{lob.icon}}</mat-icon>
+            </div>
+            <div fxLayout="column" fxFlex="50" fxLayoutAlign="center" style="margin-top: 0.5rem">
+              <div class="card-text mat-caption">{{lob.name}}</div>
+            </div>
           </div>
         </mat-card-content>
       </mat-card>
