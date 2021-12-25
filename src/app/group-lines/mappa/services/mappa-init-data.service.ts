@@ -10,32 +10,32 @@ export class MappaInitDataService {
   public getAgencies(): Agency[] {
     return [
       {
-        number: '20009',
-        name: '20009 - BATES INSURANCE AGENCY IN'
+        number: '12345',
+        name: '12345 - Lorem ipsum dolor sit '
       }, {
-        number: '20012',
-        name: '20012 - BRYDEN & SULLIVAN INS AGC'
+        number: '54321',
+        name: '54321 - Duis aute irure dolor'
       }, {
-        number: '20015',
-        name: '20015 - BRIAN MCMAHON INS. SERVIC'
+        number: '87655',
+        name: '87655 - consectetur adipisicing elit'
       }, {
-        number: '20017',
-        name: '20017 - LEWIS P BITHER INS AGCY I'
+        number: '12349',
+        name: '12349 - Excepteur sint occaecat cupidatat'
       }, {
-        number: '20019',
-        name: '20019 - RALPH J. GALANTE INSURANC'
+        number: '09823',
+        name: '09823 - Lorem ipsum dolor sit'
       }, {
-        number: '20017',
-        name: '20017 - LEWIS P BITHER INS AGCY I'
+        number: '08643',
+        name: '08643 - mollit anim id est laborum.'
       }, {
-        number: '20019',
-        name: '20019 - RALPH J. GALANTE INSURANC'
+        number: '18473',
+        name: '18473 - incididunt ut labore et dolore'
       }, {
-        number: '20017',
-        name: '20017 - LEWIS P BITHER INS AGCY I'
+        number: '15278',
+        name: '15278 - consectetur adipisicing elit'
       }, {
-        number: '20019',
-        name: '20019 - RALPH J. GALANTE INSURANC'
+        number: '74289',
+        name: '74289 - reprehenderit in voluptate velit esse12345'
       }];
   }
 }
